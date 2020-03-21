@@ -32,5 +32,6 @@ create table Date(
     Date_type VARCHAR(15),
     date DATE,
     FOREIGN KEY(Contact_id) REFERENCES contact(Contact_id)
+    on delete cascade
 );
     
