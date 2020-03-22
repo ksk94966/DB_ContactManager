@@ -118,8 +118,9 @@ Adding Contact Details
         document.getElementById('Daterow').appendChild(div3);
     };
 </script>
+<div class="form-group" id='namerow'>
 <form class="form-horizontal">
-    <div class="form-group">
+    <div>
         <h3>Customer Name:</h3>
         <label for="Fname">First name:</label>
             <input type="text" id="Fname" name="Fname">
@@ -131,17 +132,14 @@ Adding Contact Details
     </div>
     <input type="button" onclick="ajaxCallname()" value= "Save">
 </form>
+</div>
 <div class="form-group" id='addressrow'>
 <h3>Address List:<button onclick='addAddress();return false;'>Add</button></h3>
 <div id= "addressform">
 <form class="form-horizontal">    
         <div>
             <label for="Addresstype">Address Type:</label>
-            <select id="Addresstype" >
-                    <option value="Home">Home</option>
-                    <option value="Work">Work</option>
-                    <option value="Other">Other</option>
-            </select>
+                <input type="text" id="Addresstype" name="Addresstype">
             <label for="Address">Street Adress:</label>
                 <input type="text" id="Address" name="Address">
             <label for="City">City:</label>
@@ -150,7 +148,7 @@ Adding Contact Details
                 <input type="text" id="State" name="State">
             <label for="Zip">Zip:</label>
                 <input type="text" id="Zip" name="Zip">
-    </div>
+        </div>
     <input type="button" onclick="ajaxCallAddress(this.form)" value= "Save">
 </form>
 </div>
@@ -159,14 +157,9 @@ Adding Contact Details
 <h3>Phone Number List:<button onclick='addPhone();return false;'>Add</button></h3>
 <div id= "phoneform">
     <form class="form-horizontal" > 
-        <div id="Phoneform">    
+        <div>    
             <label for="Phonetype">Phone Type:</label>
-                <select id="Phonetype">
-                        <option value="Home">Home</option>
-                        <option value="Work">Work</option>
-                        <option value="Fax">Fax</option>
-                        <option value="Other">Other</option>
-                </select>
+                <input type="text" id="Phonetype" name="Phonetype">
             <label for="AreaCode">Area Code:</label>
                 <input type="text" id="AreaCode" name="AreaCode">
             <label for="Number">Number:</label>
@@ -181,14 +174,10 @@ Adding Contact Details
     <div id= "Dateform">
         <form class="form-horizontal">    
             <div>
-            <label for="Datetype">Date Type:</label>
-                <select id="Datetype">
-                        <option value="Birthday">Birthday</option>
-                        <option value="Anniversary">Anniversary</option>
-                        <option value="Other">Other</option>
-                </select>
-            <label for="date">Date(YYYY-MM-DD):</label>
-                <input type="text" id="date" name="date">
+                <label for="Datetype">Date Type:</label>
+                    <input type="text" id="Datetype" name="Datetype">
+                <label for="date">Date(YYYY-MM-DD):</label>
+                    <input type="text" id="date" name="date">
             </div>
         <input type="button" onclick="ajaxCallDate(this.form)" value= "Save">
     </form>
