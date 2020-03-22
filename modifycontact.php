@@ -1,4 +1,5 @@
 <html>
+
 <body>
 <?php
 session_start();
@@ -17,13 +18,13 @@ session_start();
             $sql = "SELECT * FROM contact WHERE Contact_id =$id";
             $result = mysqli_query($conn,$sql);
             if (mysqli_num_rows($result) > 0) {
+                echo "<h3>Customer Name:</h3>";
                 // output data of each row
                 while($row = mysqli_fetch_assoc($result)) {
                     // echo "hi";
                     echo '<div class="form-group" id="namerow">
                     <form class="form-horizontal" action="updatecontact.php" method="GET">
                         <div>
-                            <h3>Customer Name:</h3>
                             <input type="hidden" name="type" value="name">
                                 <input type="hidden" name="id" value="'.$id.'">
                             <label for="Fname">First name:</label>
@@ -33,7 +34,7 @@ session_start();
                             <label for="Lname">Last name:</label>
                                 <input type="text" id="Lname" name="Lname" value="'.$row["Lname"].'">
                         </div>
-                        <input type="submit">
+                        <input type="submit"><button><a href="contactIndex.php">Home</a></button>
                     </form>
                     </div>';
                 }

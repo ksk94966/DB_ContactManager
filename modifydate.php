@@ -29,7 +29,7 @@ session_start();
                         <label for="date">Date(YYYY-MM-DD):</label>
                             <input type="text" id="date" name="date" value="'.$row["date"].'">
                     </div>
-                    <input type="submit">
+                    <input type="submit">&nbsp&nbsp<button><a href="contactIndex.php">Home</a></button>
                 </form>
                 </div>';
                 }

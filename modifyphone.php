@@ -33,7 +33,7 @@ session_start();
                     <label for="Number">Number:</label>
                     <input type="text" id="Number" name="Number" value="'.$row["Number"].'">
                     </div>          
-                    <input type="submit">
+                    <input type="submit" value="Update">&nbsp&nbsp<button><a href="contactIndex.php">Home</a></button>
                 </form>
                 </div>';
                 }

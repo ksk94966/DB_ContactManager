@@ -12,21 +12,22 @@ session_start();
         }
         else
         {   
+            //echo "<button><a href=\"contactIndex.php\">Home</a></button>";
             if($type=="contact")
             {
                 $sql = "DELETE FROM contact WHERE Contact_id =$id";
                 if(mysqli_query($conn,$sql)){
-                    echo "Deleted Contact";
+                    echo "Deleted Contact - Successful";
                 }else{
                     echo "Unsuccessful";
                 }
-                echo "<br><button><a href=\"contactIndex.php\">Modify</a></button>";
+                echo "<br><button><a href=\"contactIndex.php\">Home</a></button>";
             }
             else if($type=="address")
             {
                 $sql = "DELETE FROM address WHERE Address_id =$id";
                 if(mysqli_query($conn,$sql)){
-                    echo "Deleted Address";
+                    echo "Deleted Address - Successful";
                 }else{
                     echo "Unsuccessful";
                 }
@@ -37,7 +38,7 @@ session_start();
             {
                 $sql = "DELETE FROM phone WHERE Phone_id =$id";
                 if(mysqli_query($conn,$sql)){
-                    echo "Deleted Phone details";
+                    echo "Deleted Phone details - Successful";
                 }else{
                     echo "Unsuccessful";
                 }
@@ -47,7 +48,7 @@ session_start();
             {
                 $sql = "DELETE FROM date WHERE date_id =$id";
                 if(mysqli_query($conn,$sql)){
-                    echo "Deleted Date";
+                    echo "Deleted Date - Successful";
                 }else{
                     echo "Unsuccessful";
                 }
