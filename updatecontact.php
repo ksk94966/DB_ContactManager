@@ -48,7 +48,7 @@
         else
         {
             //echo "krishna";
-            $sql = "UPDATE address SET Address_type=\"$Addresstypephp\",Address=\"$Addressphp\",City=\"$Cityphp\",State=\"$Statephp\",Zip=$Zipphp WHERE Address_id =".$id;
+            $sql = "UPDATE address SET Address_type=\"$Addresstypephp\",Address=\"$Addressphp\",City=\"$Cityphp\",State=\"$Statephp\",Zip=\"$Zipphp\" WHERE Address_id =".$id;
             if(mysqli_query($conn,$sql))
             {
                 echo "Update Successful";
@@ -74,7 +74,7 @@
         else
         {
             //echo "krishna";
-            $sql = "UPDATE phone SET Phone_type=\"$Phonetypephp\",Area_code=$AreaCodephp,Number=\"$Numberphp\" WHERE Phone_id =".$id;
+            $sql = "UPDATE phone SET Phone_type=\"$Phonetypephp\",Area_code=\"$AreaCodephp\",Number=\"$Numberphp\" WHERE Phone_id =".$id;
             //echo $sql;
             if(mysqli_query($conn,$sql))
             {

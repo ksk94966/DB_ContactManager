@@ -8,19 +8,19 @@ create table contact(
 create table ADDRESS(
     Address_id INT(10) AUTO_INCREMENT PRIMARY KEY,
     Contact_id INT(10),
-    Address_type VARCHAR(10) NOT NULL,
+    Address_type VARCHAR(50) NOT NULL,
     Address VARCHAR(350) NOT NULL,
     City VARCHAR(50) NOT NULL,
     State VARCHAR(50) NOT NULL,
-    Zip INT(5) NOT NULL,
+    Zip VARCHAR(15) NOT NULL,
     FOREIGN KEY(Contact_id) REFERENCES contact(Contact_id)
     ON DELETE CASCADE);
 
 create table Phone(
     Phone_id INT(10) AUTO_INCREMENT PRIMARY KEY,
     Contact_id INT(10),
-    Phone_type varchar(15) not null,
-    Area_code int(10),
+    Phone_type varchar(20) not null,
+    Area_code VARCHAR(20),
     Number varchar(20) not null,
     FOREIGN KEY(Contact_id) REFERENCES contact(Contact_id)
     on delete cascade
@@ -35,3 +35,11 @@ create table Date(
     on delete cascade
 );
     
+
+Drop table Date;
+
+Drop table phone;
+
+Drop table Address;
+
+Drop table contact;
