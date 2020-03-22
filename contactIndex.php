@@ -45,7 +45,7 @@ session_start();
                     // output data of each row
                     while($row = mysqli_fetch_assoc($result)) {
         
-                        echo "<tr><td>" . $row["Contact_id"]. "</td><td>" . $row["Fname"]. " " .$row["Lname"]. "</td><td><button id=".$row["Contact_id"]."><a href=\"viewcontact.php?contactid=".$row['Contact_id']."\">View Details</a></button></td></tr>";
+                        echo "<tr><td>" . $row["Contact_id"]. "</td><td>" . $row["Fname"]. " " .$row["Mname"]." " .$row["Lname"]. "</td><td><button id=".$row["Contact_id"]."><a href=\"viewcontact.php?contactid=".$row['Contact_id']."\">View Details</a></button></td></tr>";
                     }
                 }
 

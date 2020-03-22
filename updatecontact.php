@@ -10,7 +10,7 @@
         $Fnamephp = $_GET['Fname'];
         $Mnamephp = $_GET['Mname'];
         $Lnamephp = $_GET['Lname'];
-        echo $Mnamephp;     
+        //echo $Mnamephp;     
         $conn = mysqli_connect("localhost", "root", "root", "contactmanager");
 
         if(!$conn){     
@@ -19,7 +19,7 @@
         else
         {
             $sql = "UPDATE contact SET Fname=\"$Fnamephp\",Mname=\"$Mnamephp\",Lname=\"$Lnamephp\" WHERE Contact_id=".$id;
-            echo $sql;
+            //echo $sql;
             if(mysqli_query($conn,$sql))
             {
                 echo "Update Successful";
@@ -28,7 +28,7 @@
             {
                 echo "Unsuccessful";
             }
-                echo "<br><button><a href=\"contactIndex.php\">Modify</a></button>";
+                echo "<br><button><a href=\"contactIndex.php\">Home</a></button>";
         }
         session_destroy();
     }
@@ -57,7 +57,7 @@
             {
                 echo "Unsuccessful";
             }
-                echo "<br><button><a href=\"contactIndex.php\">Modify</a></button>";
+                echo "<br><button><a href=\"contactIndex.php\">Home</a></button>";
         }
         session_destroy();
     }
@@ -84,7 +84,7 @@
             {
                 echo "Unsuccessful";
             }
-                echo "<br><button><a href=\"contactIndex.php\">Modify</a></button>";
+                echo "<br><button><a href=\"contactIndex.php\">Home</a></button>";
         }
         session_destroy();
     }
@@ -110,7 +110,7 @@
             {
                 echo "Unsuccessful";
             }
-                echo "<br><button><a href=\"contactIndex.php\">Modify</a></button>";
+                echo "<br><button><a href=\"contactIndex.php\">Home</a></button>";
         }
         session_destroy();
     }

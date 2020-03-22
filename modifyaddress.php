@@ -37,7 +37,7 @@ session_start();
                     <label for="Zip">Zip:</label>
                         <input type="text" id="Zip" name="Zip" value="'.$row["Zip"].'">
             </div>
-            <input type="submit"><button><a href="contactIndex.php">Home</a></button>
+            <input type="submit" value="Update"><button><a href="contactIndex.php">Home</a></button>
         </form>
         </div>';
                 }

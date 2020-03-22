@@ -1,7 +1,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-Adding Contact Details<button><a href="contactIndex.php">Home</a></button>
+<h1>Contact Addition Form &nbsp&nbsp<button><a href="contactIndex.php">Home</a></button></h1> 
 </head>
 <body>
 <script>
@@ -117,6 +117,12 @@ Adding Contact Details<button><a href="contactIndex.php">Home</a></button>
 
         document.getElementById('Daterow').appendChild(div3);
     };
+
+    function ajaxCallDelete(formref)
+    {
+        //var f = document.getElementById(formref);
+        formref.parentNode.removeChild(formref);
+    };
 </script>
 <div class="form-group" id='namerow'>
 <form class="form-horizontal">
@@ -134,7 +140,7 @@ Adding Contact Details<button><a href="contactIndex.php">Home</a></button>
 </form>
 </div>
 <div class="form-group" id='addressrow'>
-<h3>Address List:<button onclick='addAddress();return false;'>Add</button></h3>
+<h5>Address List:<button onclick='addAddress();return false;'>Add form</button></h5>
 <div id= "addressform">
 <form class="form-horizontal">    
         <div>
@@ -150,11 +156,12 @@ Adding Contact Details<button><a href="contactIndex.php">Home</a></button>
                 <input type="text" id="Zip" name="Zip">
         </div>
     <input type="button" onclick="ajaxCallAddress(this.form)" value= "Save">
+    <input type="button" onclick="ajaxCallDelete(this.form)" value= "Delete-form">
 </form>
 </div>
 </div>
 <div class="form-group" id="Phonerow">
-<h3>Phone Number List:<button onclick='addPhone();return false;'>Add</button></h3>
+<h5>Phone Number List:<button onclick='addPhone();return false;'>Add form</button></h5>
 <div id= "phoneform">
     <form class="form-horizontal" > 
         <div>    
@@ -166,11 +173,12 @@ Adding Contact Details<button><a href="contactIndex.php">Home</a></button>
                 <input type="text" id="Number" name="Number">
         </div>
     <input type="button" onclick="ajaxCallPhone(this.form)" value= "Save">
+    <input type="button" onclick="ajaxCallDelete(this.form)" value= "Delete-form">
     </form>
     </div>
 </div>
 <div class="form-group" id="Daterow">
-    <h3>Date:<button onclick='addDate();return false;'>Add</button></h3>
+    <h5>Date:<button onclick='addDate();return false;'>Add form</button></h5>
     <div id= "Dateform">
         <form class="form-horizontal">    
             <div>
@@ -180,6 +188,7 @@ Adding Contact Details<button><a href="contactIndex.php">Home</a></button>
                     <input type="text" id="date" name="date">
             </div>
         <input type="button" onclick="ajaxCallDate(this.form)" value= "Save">
+        <input type="button" onclick="ajaxCallDelete(this.form)" value= "Delete-form">
     </form>
     </div>
 </div>

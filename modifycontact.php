@@ -34,7 +34,7 @@ session_start();
                             <label for="Lname">Last name:</label>
                                 <input type="text" id="Lname" name="Lname" value="'.$row["Lname"].'">
                         </div>
-                        <input type="submit"><button><a href="contactIndex.php">Home</a></button>
+                        <input type="submit" value="Update"><button><a href="contactIndex.php">Home</a></button>
                     </form>
                     </div>';
                 }
