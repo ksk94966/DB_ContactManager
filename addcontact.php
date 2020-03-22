@@ -18,7 +18,8 @@ Adding Contact Details
             ajaxreq.onreadystatechange=function() {
                 if (this.readyState==4 && this.status==200) {
                     document.getElementById('nameid').innerHTML = ajaxreq.responseText;
-                    console.log(ajaxreq.responseText)
+                    //console.log(ajaxreq.responseText)
+                    alert("Name added");
                 }
             }
             ajaxreq.open("GET","Namesuccess.php?q="+queryString, true);

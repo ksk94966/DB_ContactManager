@@ -1,5 +1,7 @@
 <html>
-<head></head>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
 <h4>Contact Details</h4>
 <style>
     table, th, td {
@@ -26,7 +28,7 @@ session_start();
                 echo "<table><tr><th>Id</th><th>Fullname</th></tr>";
                 // output data of each row
                 while($row = mysqli_fetch_assoc($result)) {
-                    echo "<tr><td>" . $row["Contact_id"]. "</td><td>" . $row["Fname"]. " " .$row["Lname"]. "</td><td><button id=".$row["Contact_id"]."><a href=\"viewcontact.php\">View Details</a></button></td></tr>";
+                    echo "<tr><td>" . $row["Contact_id"]. "</td><td>" . $row["Fname"]. " " .$row["Lname"]. "</td><td><button id=".$row["Contact_id"]."><a href=\"viewcontact.php?contactid=".$row['Contact_id']."\">View Details</a></button></td></tr>";
                 }
             }   
         }
