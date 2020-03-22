@@ -1,7 +1,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-Adding Contact Details
+Adding Contact Details<button><a href="contactIndex.php">Home</a></button>
 </head>
 <body>
 <script>
@@ -9,7 +9,7 @@ Adding Contact Details
             var Fnamescript = document.getElementById("Fname").value;
             var Mnamescript = document.getElementById("Mname").value;
             var Lnamescript = document.getElementById("Lname").value;
-            var queryString = Fnamescript + "," + Mnamescript +","+Lnamescript;
+            var queryString = "name" + "," + Fnamescript + "," + Mnamescript +","+Lnamescript;
             //console.log(queryString)
             var ajaxreq;
             if (window.XMLHttpRequest) {
@@ -22,7 +22,7 @@ Adding Contact Details
                     alert("Name added");
                 }
             }
-            ajaxreq.open("GET","Namesuccess.php?q="+queryString, true);
+            ajaxreq.open("GET","Addsuccess.php?q="+queryString, true);
             ajaxreq.send();
         }
 
@@ -34,7 +34,7 @@ Adding Contact Details
             var Cityscript =formref.elements.City.value;
             var Statescript =formref.elements.State.value;
             var Zipscript = formref.elements.Zip.value;
-            var queryString = Contactidscript+","+Addresstypescript + "," + Addressscript +","+Cityscript+","+Statescript+","+Zipscript;
+            var queryString = "address" + "," + Contactidscript+","+Addresstypescript + "," + Addressscript +","+Cityscript+","+Statescript+","+Zipscript;
             //console.log(queryString)
             var ajaxreq;
             if (window.XMLHttpRequest) {
@@ -46,7 +46,7 @@ Adding Contact Details
                     alert("Address added");
                 }
             }
-            ajaxreq.open("GET","AddressSuccess.php?q="+queryString, true);
+            ajaxreq.open("GET","Addsuccess.php?q="+queryString, true);
             ajaxreq.send();
             //console.log(kp)
 
@@ -57,7 +57,7 @@ Adding Contact Details
             var Phonetypecript = formref.elements.Phonetype.value;
             var AreaCodescript = formref.elements.AreaCode.value;
             var Numberscript = formref.elements.Number.value;
-            var queryString = Contactidscript+","+ Phonetypecript + "," + AreaCodescript +","+ Numberscript;
+            var queryString = "phone" + "," + Contactidscript+","+ Phonetypecript + "," + AreaCodescript +","+ Numberscript;
             //console.log(queryString)
             var ajaxreq;
             if (window.XMLHttpRequest) {
@@ -69,7 +69,7 @@ Adding Contact Details
                     alert("Phone details added");
                 }
             }
-            ajaxreq.open("GET","Phonesuccess.php?q="+queryString, true);
+            ajaxreq.open("GET","Addsuccess.php?q="+queryString, true);
             ajaxreq.send();
         }
 
@@ -77,7 +77,7 @@ Adding Contact Details
             var Contactidscript = document.getElementById("nameid").innerHTML;
             var Datetypecript = formref.elements.Datetype.value;
             var datescript = formref.elements.date.value;
-            var queryString = Contactidscript + "," + Datetypecript +","+datescript;
+            var queryString = "phone" + "," + Contactidscript + "," + Datetypecript +","+datescript;
             console.log(queryString)
             var ajaxreq;
             if (window.XMLHttpRequest) {
@@ -89,7 +89,7 @@ Adding Contact Details
                     alert("Date added");
                 }
             }
-            ajaxreq.open("GET","Datesuccess.php?q="+queryString, true);
+            ajaxreq.open("GET","Addsuccess.php?q="+queryString, true);
             ajaxreq.send();
         }
     
