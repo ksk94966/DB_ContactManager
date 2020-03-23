@@ -7,9 +7,11 @@
     
     $type = $_GET['type'];
     $id = $_GET['id'];  
+    $result ="";
     if($type=="name")
     {
-        $id = $_GET['id'];
+
+        //$id = $_GET['id'];
         $Fnamephp = $_GET['Fname'];
         $Mnamephp = $_GET['Mname'];
         $Lnamephp = $_GET['Lname'];
@@ -33,7 +35,7 @@
             }
                 echo "<br><button><a href=\"contactIndex.php\">Home</a></button>";
         }
-        session_destroy();
+        
     }
     else if($type=="address")
     {
@@ -50,6 +52,9 @@
         }
         else
         {
+            $sql1 = "SELECT Contact_id FROM address WHERE Address_id =$id";
+            $result1 = mysqli_query($conn,$sql1);
+            $result = mysqli_fetch_array($result1);
             //echo "krishna";
             $sql = "UPDATE address SET Address_type=\"$Addresstypephp\",Address=\"$Addressphp\",City=\"$Cityphp\",State=\"$Statephp\",Zip=\"$Zipphp\" WHERE Address_id =".$id;
             if(mysqli_query($conn,$sql))
@@ -62,10 +67,11 @@
             }
                 echo "<br><button><a href=\"contactIndex.php\">Home</a></button>";
         }
-        session_destroy();
+        
     }
     else if($type=="phone")
     {
+
         $Phonetypephp = $_GET['Phonetype'];
         $AreaCodephp = $_GET['AreaCode'];
         $Numberphp = $_GET['Number'];
@@ -76,6 +82,9 @@
         }
         else
         {
+            $sql1 = "SELECT Contact_id FROM phone WHERE Phone_id =$id";
+            $result1 = mysqli_query($conn,$sql1);
+            $result = mysqli_fetch_array($result1);
             //echo "krishna";
             $sql = "UPDATE phone SET Phone_type=\"$Phonetypephp\",Area_code=\"$AreaCodephp\",Number=\"$Numberphp\" WHERE Phone_id =".$id;
             //echo $sql;
@@ -89,10 +98,11 @@
             }
                 echo "<br><button><a href=\"contactIndex.php\">Home</a></button>";
         }
-        session_destroy();
+        
     }
     else if($type=="date")
     {
+        
         $Datetypephp = $_GET["Datetype"];
         $datephp = $_GET["date"];
         $conn = mysqli_connect("localhost", "root", "root", "contactmanager");
@@ -102,6 +112,9 @@
         }
         else
         {
+            $sql1 = "SELECT Contact_id FROM date WHERE date_id =$id";
+            $result1 = mysqli_query($conn,$sql1);
+            $result = mysqli_fetch_array($result1);
             //echo "krishna";
             $sql = "UPDATE date SET Date_type=\"$Datetypephp\",date=\"$datephp\" WHERE date_id =".$id;
             //echo $sql;
@@ -115,8 +128,19 @@
             }
                 echo "<br><button><a href=\"contactIndex.php\">Home</a></button>";
         }
+        
+        }
+
+        if($type=="name")
+        {
+            header('location: viewcontact.php?contactid='.$id);
+        }
+        else
+        {
+            header('location: viewcontact.php?contactid='.$result['Contact_id']);
+        }
+        
         session_destroy();
-    }
     
 ?>
 </body>

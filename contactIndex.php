@@ -11,7 +11,7 @@
 
 <body>
 <input type="button" onclick="window.location='./addcontact.php'" class="Redirect" value="Add Contact"/>
-<button><a href="contactIndex.php">Home</a></button>
+<button><a href="contactIndex.php">Index Home</a></button>
 <br>
 <form action="contactIndex.php" method="GET">
         <label for="Search">Contact Search :
@@ -34,7 +34,6 @@ session_start();
                 if(isset($_GET['Search']))
                 {
                     $searchString = $_GET['Search'];
-                    // $where = " WHERE fname like '%$searchString%' OR mname like '%$searchString%' OR lname like '%$searchString%'";
                     $where = "WHERE Fname LIKE '%$searchString%' OR Mname LIKE '%$searchString%' OR Lname LIKE '%$searchString%' OR Contact_id IN (SELECT Contact_id FROM Address WHERE Address LIKE '%$searchString%' OR City LIKE '%$searchString%' OR State LIKE '%$searchString%' OR Zip LIKE '%$searchString%') OR Contact_id IN(SELECT Contact_id FROM phone WHERE Area_code LIKE '%$searchString%' OR Number LIKE '%$searchString%') OR Contact_id IN(SELECT Contact_id FROM Date WHERE Date LIKE '%{$searchString}%')";
                     //echo $where;
                 }
@@ -48,11 +47,8 @@ session_start();
                         echo "<tr><td>" . $row["Contact_id"]. "</td><td>" . $row["Fname"]. " " .$row["Mname"]." " .$row["Lname"]. "</td><td><button id=".$row["Contact_id"]."><a href=\"viewcontact.php?contactid=".$row['Contact_id']."\">View Details</a></button></td></tr>";
                     }
                 }
-
-                    
-                session_destroy();
-
-                
+     
+                session_destroy();      
         }
 ?>
 </body>

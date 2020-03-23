@@ -53,7 +53,7 @@ session_start();
                 $stmt->bind_param("sss",$fname, $mname, $lname);
                 $stmt->execute();
                 $prikey = $conn->insert_id;
-                echo $prikey;
+                //echo $prikey;
 
                 //Inserting into Address table
         
@@ -85,6 +85,10 @@ session_start();
             fclose($handle);
         }
     } 
-        echo "Succesfully Upload csv file"; 
+        //echo "Succesfully Upload csv file"; 
+
+        header('location: contactIndex.php');
+
+        session_destroy();
 
 ?>

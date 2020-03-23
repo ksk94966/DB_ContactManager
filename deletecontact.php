@@ -5,60 +5,86 @@
 session_start();
 
         $id = $_GET['id'];
-        //echo $id;
         $type = $_GET['type'];
-        //echo $type;
         $conn = mysqli_connect("localhost", "root", "root", "contactmanager");
+
+        $result ="";
 
         if(!$conn){     
             echo "Database connection failed";
         }
         else
         {   
-            //echo "<button><a href=\"contactIndex.php\">Home</a></button>";
             if($type=="contact")
             {
+
                 $sql = "DELETE FROM contact WHERE Contact_id =$id";
                 if(mysqli_query($conn,$sql)){
                     echo "Deleted Contact - Successful";
                 }else{
                     echo "Unsuccessful";
                 }
-                echo "<br><button><a href=\"contactIndex.php\">Home</a></button>";
+                echo "<br><button><a href=\"contactIndex.php\">Index Home</a></button>";
             }
             else if($type=="address")
             {
+                $sql1 = "SELECT Contact_id FROM address WHERE Address_id =$id";
+                $result1 = mysqli_query($conn,$sql1);
+                $result = mysqli_fetch_array($result1);
                 $sql = "DELETE FROM address WHERE Address_id =$id";
                 if(mysqli_query($conn,$sql)){
                     echo "Deleted Address - Successful";
                 }else{
                     echo "Unsuccessful";
                 }
-                echo "<br><button><a href=\"contactIndex.php\">Home</a></button>";
+
+                echo "<br><button><a href=\"contactIndex.php\">Index Home</a></button>";
                 
             }
             else if($type=="phone")
             {
+                $sql1 = "SELECT Contact_id FROM phone WHERE Phone_id =$id";
+                $result1 = mysqli_query($conn,$sql1);
+                $result = mysqli_fetch_array($result1);
                 $sql = "DELETE FROM phone WHERE Phone_id =$id";
                 if(mysqli_query($conn,$sql)){
                     echo "Deleted Phone details - Successful";
                 }else{
                     echo "Unsuccessful";
                 }
-                echo "<br><button><a href=\"contactIndex.php\">Home</a></button>";
+
+                
+                
+                echo "<br><button><a href=\"contactIndex.php\">Index Home</a></button>";
             }
             else if($type=="date")
             {
+                $sql1 = "SELECT Contact_id FROM date WHERE date_id =$id";
+                $result1 = mysqli_query($conn,$sql1);
+                $result = mysqli_fetch_array($result1);
                 $sql = "DELETE FROM date WHERE date_id =$id";
                 if(mysqli_query($conn,$sql)){
                     echo "Deleted Date - Successful";
                 }else{
                     echo "Unsuccessful";
                 }
-                echo "<br><button><a href=\"contactIndex.php\">Home</a></button>";
+                
+                
+                echo "<br><button><a href=\"contactIndex.php\">Index Home</a></button>";
             }
             
         }
+
+        if($type=="contact")
+        {
+            header('location: contactIndex.php');
+        }
+        else
+        {
+            header('location: viewcontact.php?contactid='.$result['Contact_id']);
+        }
+        
+        session_destroy();
 ?>
     
 </body>    

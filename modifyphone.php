@@ -5,9 +5,7 @@
 session_start();
 
         $id = $_GET['id'];
-        //echo $id;
-        //$type = $_GET['type'];
-        //echo $type;
+
         $conn = mysqli_connect("localhost", "root", "root", "contactmanager");
 
         if(!$conn){     
