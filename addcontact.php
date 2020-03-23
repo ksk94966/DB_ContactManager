@@ -9,7 +9,7 @@
             var Fnamescript = document.getElementById("Fname").value;
             var Mnamescript = document.getElementById("Mname").value;
             var Lnamescript = document.getElementById("Lname").value;
-            var queryString = "name" + "," + Fnamescript + "," + Mnamescript +","+Lnamescript;
+            var queryString = "name" + ":" + Fnamescript + ":" + Mnamescript +":"+Lnamescript;
             //console.log(queryString)
             var ajaxreq;
             if (window.XMLHttpRequest) {
@@ -34,7 +34,7 @@
             var Cityscript =formref.elements.City.value;
             var Statescript =formref.elements.State.value;
             var Zipscript = formref.elements.Zip.value;
-            var queryString = "address" + "," + Contactidscript+","+Addresstypescript + "," + Addressscript +","+Cityscript+","+Statescript+","+Zipscript;
+            var queryString = "address" + ":" + Contactidscript+":"+Addresstypescript + ":" + Addressscript +":"+Cityscript+":"+Statescript+":"+Zipscript;
             //console.log(queryString)
             var ajaxreq;
             if (window.XMLHttpRequest) {
@@ -57,7 +57,7 @@
             var Phonetypecript = formref.elements.Phonetype.value;
             var AreaCodescript = formref.elements.AreaCode.value;
             var Numberscript = formref.elements.Number.value;
-            var queryString = "phone" + "," + Contactidscript+","+ Phonetypecript + "," + AreaCodescript +","+ Numberscript;
+            var queryString = "phone" + ":" + Contactidscript+":"+ Phonetypecript + ":" + AreaCodescript +":"+ Numberscript;
             //console.log(queryString)
             var ajaxreq;
             if (window.XMLHttpRequest) {
@@ -77,7 +77,7 @@
             var Contactidscript = document.getElementById("nameid").innerHTML;
             var Datetypecript = formref.elements.Datetype.value;
             var datescript = formref.elements.date.value;
-            var queryString = "phone" + "," + Contactidscript + "," + Datetypecript +","+datescript;
+            var queryString = "date" + ":" + Contactidscript + ":" + Datetypecript +":"+datescript;
             console.log(queryString)
             var ajaxreq;
             if (window.XMLHttpRequest) {
@@ -88,7 +88,7 @@
                     //console.log(ajaxreq.responseText)
                     alert("Date added");
                 }
-            }
+            }   
             ajaxreq.open("GET","Addsuccess.php?q="+queryString, true);
             ajaxreq.send();
         }
@@ -127,13 +127,14 @@
 <div class="form-group" id='namerow'>
 <form class="form-horizontal">
     <div>
-        <h3>Customer Name:</h3>
+        <h3>Customer Name:</h3> 
         <label for="Fname">First name:</label>
             <input type="text" id="Fname" name="Fname">
         <label for="Mname">Middle name:</label>
             <input type="text" id="Mname" name="Mname">
         <label for="Lname">Last name:</label>
             <input type="text" id="Lname" name="Lname">
+            (Save this form first)
         <p hidden id='nameid'></p>
     </div>
     <input type="button" onclick="ajaxCallname()" value= "Save">
@@ -192,5 +193,6 @@
     </form>
     </div>
 </div>
+<button onclick="location.reload();">Submit and Refresh</button>
 </body>
 </html>
